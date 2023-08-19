@@ -6,7 +6,7 @@ import EmptyCart from './EmptyCart'
 export default function YourCart() {
     const carts = useSelector(state => state.carts)
     const notify = useSelector(state => state.notify)
- 
+    
   return (
     <div>
         <div className='py-[10px] text-[20px] mb-[20px]  bg-[#f2dede] text-[#bb6a69]'>
@@ -27,7 +27,7 @@ export default function YourCart() {
                 </tr>
                 {
                     carts.length > 0 ? 
-                    carts.map((item, index) => (<Cart key={item.productId} item={item} stt={index}/>)):
+                    carts.map((item, index) => (<Cart key={item.productId} item={item} stt={index} />)):
                     <EmptyCart />
                 }
             </table>
@@ -36,7 +36,7 @@ export default function YourCart() {
                     <div className='my-[5px]'>
                         <span className='mx-[10px]'>There are {carts.length} items in your shopping cart</span>
                         <span className='text-red-700 font-semibold ml-[50px]'>
-                            {carts.reduce((accum, item) => (accum + item.price * item.quantity), 0)} USD 
+                            {carts.reduce((accumulate, item) => (accumulate + (item.price * item.quantity)), 0)} USD 
                         </span>
                     </div> : 
                     <hr className='border-solid border-[1px] mx-[10px] border-[#8b8a8a]'/>

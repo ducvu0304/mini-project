@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { deleteProduct,updateCart } from '../../redux/carts/action';
 import { useEffect, useState } from 'react';
 
 export default function Cart({item, stt}) {
   const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState(0)
+  const [quantity, setQuantity] = useState(1)
+  const carts = useSelector(state => state.carts)
 
-  useEffect(() => {
+  useEffect (()=> {
     setQuantity(item.quantity)
-  }, [])
-
+  }, [carts]) 
 
   return (
     <tr>

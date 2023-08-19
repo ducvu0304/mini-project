@@ -1,6 +1,6 @@
 import { ADD_TO_CART, UPDATE_CART, DELETE_PRODUCT } from "../constant"
 
-const notify = (state , action) => {
+const notifyReducer = (state , action) => {
     switch(action.type) {
         case ADD_TO_CART :
             state =  ADD_TO_CART
@@ -16,4 +16,4 @@ const notify = (state , action) => {
     }
 }
 
-export default notify
+export default notifyReducer

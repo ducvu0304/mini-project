@@ -28,14 +28,14 @@ const cartsReducer = (state=initialState, action) => {
     switch(action.type) {
         case ADD_TO_CART : {
             if(checkProductInCart(action.id, state)) {
-                for (let i in state) {
+                for(let i in state) {
                     if(state[i].productId === action.id) {
                         let quantity = +action.quantity
-                        state[i].quantity += quantity
+                        state[i].quantity +=  quantity
                         localStorage.setItem('carts', JSON.stringify(state))
                     }
                 }
-                return [...state]
+                return [...state] 
             }else {
                 let product = products.filter(item => (item.productId === action.id))
                 product[0].quantity = action.quantity
